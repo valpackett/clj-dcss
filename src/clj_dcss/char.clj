@@ -43,14 +43,14 @@
      str = number
      xl = number
 
-     <stats2> = {<whitespace>} <'MP'> {<whitespace>} mp <'/'> mmp [<whitespace '('> mmmp <')'>] {<whitespace>} <'EV'> {<whitespace>} ev {<whitespace>} <'Int'> {<whitespace>} int {<whitespace>} <'God: '> {<whitespace>} [god [<' ['> piety-stars <']'>]]
+     <stats2> = {<whitespace>} <'MP'> {<whitespace>} mp <'/'> mmp [<whitespace '('> mmmp <')'>] {<whitespace>} <'EV'> {<whitespace>} ev {<whitespace>} <'Int'> {<whitespace>} int {<whitespace>} <'God: '> {<whitespace>} [god [<' ['> piety <']'>]]
      mp = number
      mmp = number
      mmmp = number
      ev = number
      int = number
      god = text
-     piety-stars = #'[\\.\\*]'+
+     piety = #'[\\.\\*]+'
 
      <stats3> = {<whitespace>} <'Gold'> {<whitespace>} gold {<whitespace>} <'SH'> {<whitespace>} sh {<whitespace>} <'Dex'> {<whitespace>} dex {<whitespace>} <'Spells:'> {<whitespace>} spells <' memorised,'> {<whitespace>} spell-levels-left <' levels left'>
      gold = number
@@ -60,15 +60,9 @@
      spell-levels-left = number
      "))
 
-(defn- count-piety [points]
-  (->> points
-       (filter (partial = "*"))
-       count))
-
 (defn- tree->map [x]
   (insta/transform
     {:text str
-     :piety-stars (fn [& args] [:piety-stars (count-piety args)])
      :number #(Integer/parseInt %)
      :meta  (fn [& args] [:meta (into {} args)])
      :stats (fn [& args] [:stats (into {} args)])
@@ -78,3 +72,20 @@
 (defn parse-char
   "Parse a DCSS character file (char dump, morgue file) into a Clojure map."
   [x] (-> x char->tree tree->map))
+
+(defn- count-piety-stars [points]
+  (->> points
+       (map str)
+       (filter (partial = "*"))
+       count))
+
+(defn count-piety [x]
+  (update-in x [:stats :piety] count-piety-stars))
+
+(defn process-char
+  "Process a DCSS character map, making it more useful and normalized."
+  [x] (-> x count-piety))
+
+(defn parse-and-process-char
+  "Parse and process a DCSS character file (char dump, morgue file)."
+  [x] (-> x parse-char process-char))
