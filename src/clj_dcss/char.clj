@@ -35,16 +35,18 @@
 
      stats = stats1 stats2 stats3
 
-     <stats1> = {<whitespace>} <'HP'> {<whitespace>} hp <'/'> mhp {<whitespace>} <'AC'> {<whitespace>} ac {<whitespace>} <'Str'> {<whitespace>} str {<whitespace>} <'XL:'> {<whitespace>} xl
+     <stats1> = {<whitespace>} <'HP'> {<whitespace>} hp <'/'> mhp [<whitespace '('> mmhp <')'>] {<whitespace>} <'AC'> {<whitespace>} ac {<whitespace>} <'Str'> {<whitespace>} str {<whitespace>} <'XL:'> {<whitespace>} xl
      hp = number
      mhp = number
+     mmhp = number
      ac = number
      str = number
      xl = number
 
-     <stats2> = {<whitespace>} <'MP'> {<whitespace>} mp <'/'> mmp {<whitespace>} <'EV'> {<whitespace>} ev {<whitespace>} <'Int'> {<whitespace>} int {<whitespace>} <'God: '> {<whitespace>} [god <' ['> piety-stars <']'>]
+     <stats2> = {<whitespace>} <'MP'> {<whitespace>} mp <'/'> mmp [<whitespace '('> mmmp <')'>] {<whitespace>} <'EV'> {<whitespace>} ev {<whitespace>} <'Int'> {<whitespace>} int {<whitespace>} <'God: '> {<whitespace>} [god [<' ['> piety-stars <']'>]]
      mp = number
      mmp = number
+     mmmp = number
      ev = number
      int = number
      god = text
