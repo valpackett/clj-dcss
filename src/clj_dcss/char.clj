@@ -105,9 +105,14 @@
 (defn count-piety [x]
   (update-in x [:stats :piety] count-piety-stars))
 
+(defn move-godtitle [x]
+  (-> x
+      (assoc :godtitle (get-in x [:stats :godtitle]))
+      (update-in [:stats] #(dissoc % :godtitle))))
+
 (defn process-char
   "Process a DCSS character map, making it more useful and normalized."
-  [x] (-> x count-piety))
+  [x] (-> x count-piety move-godtitle))
 
 (defn parse-and-process-char
   "Parse and process a DCSS character file (char dump, morgue file)."

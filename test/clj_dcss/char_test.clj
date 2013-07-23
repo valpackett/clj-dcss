@@ -43,5 +43,7 @@ Saprovore : . . .                    p - +6 ring of protection
 
 (fact
   (process-char
-    {:stats {:piety "****.."}})
-  => {:stats {:piety 4}})
+    {:stats {:piety "****.."
+             :godtitle "Idiot"}})
+  => {:stats {:piety 4}
+      :godtitle "Idiot"})
