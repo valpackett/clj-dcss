@@ -3,8 +3,8 @@
   :url "https://github.com/myfreeweb/clj-dcss"
   :license {:name "WTFPL"
             :url "http://www.wtfpl.net/about/"}
-  :dependencies [[org.clojure/clojure "1.5.0"]
-                 [instaparse "1.1.0"]]
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [instaparse "1.2.2"]]
   :profiles {:dev {:dependencies [[midje "1.5.0"]
                                   [lein-release "1.0.0"]]}}
   :plugins [[lein-midje "3.0.0"]

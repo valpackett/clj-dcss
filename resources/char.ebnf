@@ -1,0 +1,79 @@
+char = meta <whitespace> [scoreline beginning godsummary <text> ending <text>] summary stats resistances <[#'.*']>
+
+<whitespace> = #'\s*'
+<letter> = #'[0-9a-zA-Z,-;:!\(\)\+{}\\\"@]'
+text = {letter | '.' | whitespace}
+number = #'[0-9-\+]+'
+<date> = #'[a-zA-Z]+ [0-9]+, [0-9]+'
+
+meta = <'Dungeon Crawl Stone Soup version '> version <' ('> interface <') character file.'>
+version = text
+interface = text
+
+<scoreline> = score <text '(level' text ''>
+score = number
+
+<beginning> = <whitespace> <'Began' text ' on '> startdate <'.\n'>
+startdate = date
+
+<godsummary> = <whitespace> <'Was ' ('a' | 'an' | 'the') ' '> godtitle <' of ' text '.'>
+godtitle = text
+
+<ending> = <whitespace> <text ' on '> enddate <('.' | '!') '\n'>
+enddate = date
+
+<summary> = <'.\n\n'> name <' the '> title <' ('> character <')' {whitespace} 'Turns: '> turns <', Time: '> time
+name = text
+title = text
+character = text
+turns = number
+time = text
+
+stats = <'\n\n'> stats1 stats2 stats3
+
+<stats1> = <whitespace> <'HP'> <whitespace> hp <'/'> mhp [<whitespace '('> mmhp <')'>] <whitespace> <'AC'> <whitespace> ac <whitespace> <'Str'> <whitespace> str <whitespace> <'XL:'> <whitespace> xl [<whitespace 'Next: '> percent-of-next-xl <'%'>]
+hp = number
+mhp = number
+mmhp = number
+ac = number
+str = number
+xl = number
+percent-of-next-xl = number
+
+<stats2> = <whitespace> <'MP'> <whitespace> mp <'/'> mmp [<whitespace '('> mmmp <')'>] <whitespace> <'EV'> <whitespace> ev <whitespace> <'Int'> <whitespace> int <whitespace> <'God: '> <whitespace> [god [<' ['> piety <']'>]]
+mp = number
+mmp = number
+mmmp = number
+ev = number
+int = number
+god = text
+piety = #'[\.\*]+'
+
+<stats3> = <whitespace> <'Gold'> <whitespace> gold <whitespace> <'SH'> <whitespace> sh <whitespace> <'Dex'> <whitespace> dex <whitespace> <'Spells:'> <whitespace> spells <' memorised,'> <whitespace> spell-levels-left <' levels left'>
+gold = number
+sh = number
+dex = number
+spells = number
+spell-levels-left = number
+
+resistances = <'\n'> resist-line+
+<resist-line> = <'\n'> resist-entry resist-entry <{letter | ' '}>
+<resist-entry> = ((rF | sInv | rC | Ward | rN | Cons | rPois | rCorr | rElec | Clar | SustAb | spirit | rMut | stasis | rRot | Fly | Sap) <whitespace>) / <whitespace>
+rF     = <'Res.Fire'>   resist-val
+sInv   = <'See Invis.'> resist-val
+rC     = <'Res.Cold'>   resist-val
+Ward   = <'Warding'>    resist-val
+rN     = <'Life Prot.'> resist-val
+Cons   = <'Conserve'>   resist-val
+rPois  = <'Res.Poison'> resist-val
+rCorr  = <'Res.Corr.'>  resist-val
+rElec  = <'Res.Elec.'>  resist-val
+Clar   = <'Clarity'>    resist-val
+SustAb = <'Sust.Abil.'> resist-val
+spirit = <'Spirit.Shd'> resist-val
+rMut   = <'Res.Mut.'>   resist-val
+stasis = <'Stasis'>     resist-val
+rRot   = <'Res.Rott.'>  resist-val
+Fly    = <'Flight'>     resist-val
+Sap    = <'Saprovore'>  resist-val
+resist-val = <whitespace ':' whitespace> #'([\+x\.] )+'
