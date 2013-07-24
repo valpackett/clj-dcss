@@ -1,4 +1,4 @@
-char = meta <whitespace> [scoreline beginning godsummary <text> ending <text>] summary stats resistances <[#'.*']>
+char = meta <whitespace> [scoreline beginning godsummary <text> ending <text> <'.\n\n'>] summary stats resistances <[#'.*']>
 
 <whitespace> = #'\s*'
 <letter> = #'[0-9a-zA-Z,-;:!\(\)\+{}\\\"@]'
@@ -16,13 +16,13 @@ score = number
 <beginning> = <whitespace> <'Began' text ' on '> startdate <'.\n'>
 startdate = date
 
-<godsummary> = <whitespace> <'Was ' ('a' | 'an' | 'the') ' '> godtitle <' of ' text '.'>
+<godsummary> = <whitespace> <'Was ' ('a' | 'an' | 'the') ' '> godtitle <' of ' text '.\n'>
 godtitle = text
 
 <ending> = <whitespace> <text ' on '> enddate <('.' | '!') '\n'>
 enddate = date
 
-<summary> = <'.\n\n'> name <' the '> title <' ('> character <')' {whitespace} 'Turns: '> turns <', Time: '> time
+<summary> = name <' the '> title <' ('> character <')' {whitespace} 'Turns: '> turns <', Time: '> time
 name = text
 title = text
 character = text

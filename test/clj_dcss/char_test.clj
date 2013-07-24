@@ -3,6 +3,7 @@
         clj-dcss.char))
 
 (facts
+  ; Victory
   (parse-char "Dungeon Crawl Stone Soup version 0.13-a0-1363-g4786dc5 (webtiles) character file.
 
 1463507 floatboth the Anemomancer (level 27, 268/292 HPs)
@@ -41,6 +42,7 @@ Saprovore : . . .                    p - +6 ring of protection
                     :rPois "+", :rCorr ".", :rElec ".", :Clar ".", :SustAb "..", :spirit "."
                     :rMut "+", :stasis ".", :rRot ".", :Fly ".", :Sap "..."}}
 
+  ; YASD
   ; https://crawl.develz.org/tavern/viewtopic.php?f=12&t=8773
   (parse-char "Dungeon Crawl Stone Soup version 0.12.1 (tiles) character file.
 
@@ -84,11 +86,100 @@ a: Heroism, Finesse, Renounce Religion
       :stats {:ac 25, :dex 21, :ev 2, :god "Okawaru", :gold 3386, :hp 239, :int 0
               :mhp 239, :mmhp 240, :mmp 26, :mp 26, :percent-of-next-xl 32, :piety "******"
               :sh 0, :spell-levels-left 24, :spells 0, :str 37, :xl 25}
-      :time "07:55:31", :title "Invulnerable", :turns 83609})
+      :time "07:55:31", :title "Invulnerable", :turns 83609}
+
+  ; In progress dump
+  ; https://crawl.develz.org/tavern/viewtopic.php?f=12&t=8767
+  (parse-char "Dungeon Crawl Stone Soup version 0.13-a0-2496-g11650dd (console) character file.
+
+rebthor the Severer (Lava Orc Ice Elementalist)    Turns: 41918, Time: 06:33:50
+
+HP 103/103       AC 17     Str 13      XL: 14   Next: 80%
+MP  25/25        EV 12     Int 19      God: Ashenzari [*****.]
+Gold 2442        SH  0     Dex 11      Spells:  7 memorised,  4 levels left
+
+Res.Fire  : + + .   See Invis. : +   L - +3,+6 battleaxe (curse)
+Res.Cold  : + . .   Warding    : +   Y - +0 orc leather armour {rC+} (curse)
+Life Prot.: + . .   Conserve   : .   (no shield)
+Res.Poison: .       Res.Corr.  : .   e - +0 crested helmet (curse)
+Res.Elec. : .       Clarity    : +   a - +0 elf cloak (curse)
+Sust.Abil.: . .     Spirit.Shd : .   r - +0 pair of gloves
+Res.Mut.  : .       Stasis     : .   z - +2 pair of boots (curse)
+Res.Rott. : .       Flight     : .   d - cursed amulet of warding
+Saprovore : + . .                    F - faintly glowing jade ring {tried, Str+1}
+                                     K - cursed ring of protection from fire
+
+@: slow, somewhat resistant to hostile enchantments, stealthy
+A: conserve scrolls, saprovore 1
+a: Scrying, Transfer Knowledge, Renounce Religion
+
+
+You are on level 15 of the Dungeon.
+You worship Ashenzari.
+Ashenzari is exalted by your worship.
+You are not hungry.")
+  => {:character "Lava Orc Ice Elementalist"
+      :meta {:interface "console", :version "0.13-a0-2496-g11650dd"}
+      :name "rebthor", :time "06:33:50", :title "Severer", :turns 41918
+      :resistances {:Clar "+", :Cons ".", :Fly ".", :Sap "+..", :SustAb "..", :Ward "+"
+                    :rC "+..", :rCorr ".", :rElec ".", :rF "++.", :rMut ".", :rN "+.."
+                    :rPois ".", :rRot ".", :sInv "+", :spirit ".", :stasis "."}
+      :stats {:ac 17, :dex 11, :ev 12, :god "Ashenzari", :gold 2442, :hp 103, :int 19
+              :mhp 103, :mmp 25, :mp 25, :percent-of-next-xl 80, :piety "*****.", :sh 0
+              :spell-levels-left 4, :spells 7, :str 13, :xl 14}}
+
+  ;
+  (parse-char "Dungeon Crawl Stone Soup version 0.12.1 (tiles) character file.
+
+6527055 Octomurder the Middleweight Champion (level 27, 300/300 HPs)
+             Began as an Octopode Earth Elementalist on June 26, 2013.
+             Was the Champion of Makhleb.
+             Escaped with the Orb
+             ... and 15 runes on July 21, 2013!
+             
+             The game lasted 20:17:57 (322969 turns).
+
+Octomurder the Grand Master (OpEE)                Turns: 322969, Time: 20:17:58
+
+HP 300/300       AC 55     Str 31      XL: 27
+MP  15/49        EV 42     Int 22      God: Makhleb [******]
+Gold 8937        SH 64     Dex 21      Spells: 17 memorised,  0 levels left
+
+Res.Fire  : + + +   See Invis. : +     - Unarmed
+Res.Cold  : + + +   Warding    : .   q - +6 large shield of Psuqyv {Str+3 Int+4}
+Life Prot.: + + +   Conserve   : +   i - +2 wizard hat \"Vamav\" {rElec rF++ MR}
+Res.Poison: +       Res.Corr.  : .   z - amulet \"Vymifeoh\" {Cons rF+ Str+3}
+Res.Elec. : +       Clarity    : .   l - ring \"Laorph\" {Str+5 Dex+2 Acc+7 Dam+3}
+Sust.Abil.: . .     Spirit.Shd : .   m - ring \"Gymos\" {+Inv rC+ rN+}
+Res.Mut.  : .       Rnd.Telep. : +   U - ring of Robustness {AC+8}
+Res.Rott. : +       Ctrl.Telep.: x   I - ring \"Thiblirr\" {rC+ SInv}
+Saprovore : . . .   Flight     : .   T - ring of Shaolin {EV+8}
+                                     P - ring \"Sekyulor\" {Hunger- rElec rC+ rN+}
+                                     S - ring of Vitality {Regen HP+15}
+                                     V - ring \"Klunk\" {rF+ Str+4 Dex+3}
+
+@: statue-form, stone skin, disjoining, phasing, very slightly contaminated,
+hasted, darkness, quick, extremely resistant to hostile enchantments, stealthy
+A: almost no armour, amphibious, 8 rings, constrict 8, camouflage 1,
+deterioration 1, slow healing 1, teleportitis 1
+a: End Transformation, Minor Destruction, Lesser Servant of Makhleb, Major
+Destruction, Greater Servant of Makhleb, Renounce Religion, Evoke Invisibility
+ : 15/15 runes: serpentine, barnacled, slimy, silver, golden, iron, obsidian,
+icy, bone, abyssal, demonic, glowing, magical, fiery, dark")
+  => {:character "OpEE", :enddate "July 21, 2013", :godtitle "Champion"
+      :meta {:interface "tiles", :version "0.12.1"}, :name "Octomurder"
+      :resistances {:Clar ".", :Cons "+", :Fly ".", :Sap "...", :SustAb "..", :Ward "."
+                    :rC "+++", :rCorr ".", :rElec "+", :rF "+++", :rMut ".", :rN "+++"
+                    :rPois "+", :rRot "+", :sInv "+", :spirit "."}
+      :stats {:ac 55, :dex 21, :ev 42, :god "Makhleb", :gold 8937, :hp 300, :int 22, :mhp 300, :mmp 49
+              :mp 15, :piety "******", :sh 64, :spell-levels-left 0, :spells 17, :str 31, :xl 27}
+      :score 6527055, :startdate "June 26, 2013", :time "20:17:58", :title "Grand Master", :turns 322969 })
 
 (fact
-  (process-char
-    {:stats {:piety "****.."
-             :godtitle "Idiot"}})
-  => {:stats {:piety 4}
-      :godtitle "Idiot"})
+  (count-piety {:stats {:piety "****.."}}) => {:stats {:piety 4}}
+  (count-piety {:stats {:piety ""}}) => {:stats {:piety 0}}
+  (count-piety {:stats {}}) => {:stats {}})
+
+(fact
+  (move-godtitle {:stats {:godtitle "Idiot"}}) => {:godtitle "Idiot", :stats {}}
+  (move-godtitle {:stats {}}) => {:stats {}})

@@ -28,12 +28,16 @@
        count))
 
 (defn count-piety [x]
-  (update-in x [:stats :piety] count-piety-stars))
+  (if (get-in x [:stats :piety])
+    (update-in x [:stats :piety] count-piety-stars)
+    x))
 
 (defn move-godtitle [x]
-  (-> x
-      (assoc :godtitle (get-in x [:stats :godtitle]))
-      (update-in [:stats] #(dissoc % :godtitle))))
+  (if-let [gt (get-in x [:stats :godtitle])]
+    (-> x
+        (assoc :godtitle gt)
+        (update-in [:stats] #(dissoc % :godtitle)))
+    x))
 
 (defn process-char
   "Process a DCSS character map, making it more useful and normalized."
