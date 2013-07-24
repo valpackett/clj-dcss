@@ -1,7 +1,8 @@
 (ns clj-dcss.char
   (:require [instaparse.core :as insta]
             [clojure.java.io :as io]
-            [clojure.string  :as string]))
+            [clojure.string  :as string]
+            [clj-dcss.abbrev :as abbrev]))
 
 (def ^:private char->tree
   (-> "char.ebnf" io/resource slurp insta/parser))
@@ -39,9 +40,12 @@
         (update-in [:stats] #(dissoc % :godtitle)))
     x))
 
+(defn parse-character-str [x]
+  (update-in x [:character] abbrev/normalize-char))
+
 (defn process-char
   "Process a DCSS character map, making it more useful and normalized."
-  [x] (-> x count-piety move-godtitle))
+  [x] (-> x count-piety move-godtitle parse-character-str))
 
 (defn parse-and-process-char
   "Parse and process a DCSS character file (char dump, morgue file)."

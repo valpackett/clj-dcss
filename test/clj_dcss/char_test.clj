@@ -183,3 +183,9 @@ icy, bone, abyssal, demonic, glowing, magical, fiery, dark")
 (fact
   (move-godtitle {:stats {:godtitle "Idiot"}}) => {:godtitle "Idiot", :stats {}}
   (move-godtitle {:stats {}}) => {:stats {}})
+
+(fact
+  (parse-character-str {:character "OpEE"})
+  => {:character {:species "Octopode", :background "Earth Elementalist"}}
+  (parse-character-str {:character "Green Draconian Air Elementalist"})
+  => {:character {:color "Green" :species "Draconian", :background "Air Elementalist"}})
