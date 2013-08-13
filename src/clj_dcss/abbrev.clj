@@ -1,9 +1,10 @@
 (ns clj-dcss.abbrev
   (:use clj-dcss.util)
   (:require [clojure.set :as set]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            frak))
 
-(def species-map
+(def species
   {"Centaur"        "Ce"
    "Deep Dwarf"     "DD"
    "Deep Elf"       "DE"
@@ -39,12 +40,17 @@
    "Tengu"          "Te"
    "Troll"          "Tr"
    "Vampire"        "Vp"})
-(def species-demap (set/map-invert species-map))
-(def species (set (keys species-map)))
-(def species-abbr (set (vals species-map)))
-(defn species? [x] (contains? species x))
+(def species-reverse (set/map-invert species))
+(def species-long (set (keys species)))
+(def species-short (set (vals species)))
+(def species-pattern
+  (frak/pattern (concat species-long species-short)))
+(defn normalize-species [x]
+  (if (contains? species-short x)
+    (get species-reverse x)
+    x))
 
-(def backgrounds-map
+(def backgrounds
   {"Abyssal Knight"     "AK"
    "Air Elementalist"   "AE"
    "Artificer"          "Ar"
@@ -78,42 +84,37 @@
    "Wanderer"           "Wn"
    "Warper"             "Wa"
    "Wizard"             "Wz"})
-(def backgrounds-demap (set/map-invert backgrounds-map))
-(def backgrounds (set (keys backgrounds-map)))
-(def backgrounds-abbr (set (vals backgrounds-map)))
-(defn background? [x] (contains? backgrounds x))
+(def backgrounds-reverse (set/map-invert backgrounds))
+(def backgrounds-long (set (keys backgrounds)))
+(def backgrounds-short (set (vals backgrounds)))
+(def background-pattern
+  (frak/pattern (concat backgrounds-long backgrounds-short)))
+(defn normalize-background [x]
+  (if (contains? backgrounds-short x)
+    (get backgrounds-reverse x)
+    x))
 
-(def colors #{"Red" "White" "Green" "Yellow" "Grey" "Black" "Purple" "Mottled" "Pale"})
-(defn color? [x] (contains? colors x))
+(def color-pattern (frak/pattern ["Red" "White" "Green" "Yellow" "Grey" "Black" "Purple" "Mottled" "Pale"]))
 
 (defn normalize-char
   "Normalizes any character string or abbreviation ('DEFE', 'Octopode Wizard', even 'Green DrEE')
   to a Clojure map with keys :color, :species and :background."
-  [x] ;-(
-  (let [words (apply list (str/split x #"\s")) ; XXX: pop works differently on vectors and lists
-        r {}
-        fword (first words)
-        r (if (color? fword) (assoc r :color fword) r)
-        words (if (color? fword) (pop words) words)
-        fword (first words)
-        r (->> [fword
-                (str fword " " (second words))
-                (get species-demap (first-two fword))]
-               (filter species?) first
-               (assoc r :species))
-        lword (last words)
-        r (->> [lword
-                (str (penultimate words) " " lword)
-                (get backgrounds-demap (last-two lword))]
-               (filter background?) first
-               (assoc r :background))]
-    r))
+  [x]
+  (let [clr (re-first color-pattern x)
+        x   (if clr (str/replace-first x clr "") x) ; Avoid collisions
+        spc (re-first species-pattern x)
+        x   (str/replace-first x spc "")
+        bkg (re-first background-pattern x)
+        ret {:species (normalize-species spc), :background (normalize-background bkg)}]
+    (if clr
+      (assoc ret :color clr)
+      ret)))
 
 (defn abbrev-char
   "Converts a full character string to an abbreviation (eg. 'Deep Elf Wizard' to 'DEWz')."
   [x]
   (let [n (normalize-char x)]
-    (str (get species-map (:species n)) (get backgrounds-map (:background n)))))
+    (str (get species (:species n)) (get backgrounds (:background n)))))
 
 (defn deabbrev-char
   "Converts an abbreviation to a full character string (eg. 'NaAE' to 'Naga Air Elementalist')."

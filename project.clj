@@ -4,7 +4,8 @@
   :license {:name "WTFPL"
             :url "http://www.wtfpl.net/about/"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [instaparse "1.2.2"]]
+                 [instaparse "1.2.2"]
+                 [frak "0.1.2"]]
   :profiles {:dev {:dependencies [[midje "1.5.0"]
                                   [lein-release "1.0.0"]]}}
   :plugins [[lein-midje "3.0.0"]
