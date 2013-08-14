@@ -1,7 +1,8 @@
 (ns clj-dcss.log
   (:require [instaparse.core :as insta]
             [clj-dcss.version :as v])
-  (:use clojure.walk))
+  (:use clojure.walk
+        clj-dcss.util))
 
 (def ^:private log->tree
   (insta/parser
