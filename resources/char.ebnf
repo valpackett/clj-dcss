@@ -6,7 +6,7 @@ text = {letter | '.' | whitespace}
 number = #'[0-9-\+]+'
 <date> = #'[a-zA-Z]+ [0-9]+, [0-9]+'
 
-meta = <'Dungeon Crawl Stone Soup version '> version <' ('> interface <') character file.'>
+meta = <whitespace 'Dungeon Crawl Stone Soup version '> version <' ('> interface <') character file.'>
 version = text
 interface = text
 

@@ -4,7 +4,7 @@
 
 (facts
   ; Victory
-  (parse-char "Dungeon Crawl Stone Soup version 0.13-a0-1363-g4786dc5 (webtiles) character file.
+  (parse-char " Dungeon Crawl Stone Soup version 0.13-a0-1363-g4786dc5 (webtiles) character file.
 
 1463507 floatboth the Anemomancer (level 27, 268/292 HPs)
              Began as a Naga Air Elementalist on May 29, 2013.
@@ -44,7 +44,7 @@ Saprovore : . . .                    p - +6 ring of protection
 
   ; YASD
   ; https://crawl.develz.org/tavern/viewtopic.php?f=12&t=8773
-  (parse-char "Dungeon Crawl Stone Soup version 0.12.1 (tiles) character file.
+  (parse-char " Dungeon Crawl Stone Soup version 0.12.1 (tiles) character file.
 
 513027 Shawyer the Invulnerable (level 25, 239/239 (240) HPs)
              Began as a Minotaur Fighter on July 19, 2013.
@@ -90,7 +90,7 @@ a: Heroism, Finesse, Renounce Religion
 
   ; In progress dump
   ; https://crawl.develz.org/tavern/viewtopic.php?f=12&t=8767
-  (parse-char "Dungeon Crawl Stone Soup version 0.13-a0-2496-g11650dd (console) character file.
+  (parse-char " Dungeon Crawl Stone Soup version 0.13-a0-2496-g11650dd (console) character file.
 
 rebthor the Severer (Lava Orc Ice Elementalist)    Turns: 41918, Time: 06:33:50
 
@@ -128,8 +128,7 @@ You are not hungry.")
               :mhp 103, :mmp 25, :mp 25, :percent-of-next-xl 80, :piety "*****.", :sh 0
               :spell-levels-left 4, :spells 7, :str 13, :xl 14}}
 
-  ;
-  (parse-char "Dungeon Crawl Stone Soup version 0.12.1 (tiles) character file.
+  (parse-char " Dungeon Crawl Stone Soup version 0.12.1 (tiles) character file.
 
 6527055 Octomurder the Middleweight Champion (level 27, 300/300 HPs)
              Began as an Octopode Earth Elementalist on June 26, 2013.
