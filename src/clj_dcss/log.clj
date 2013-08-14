@@ -52,5 +52,6 @@
   [x] (log->url (constantly "http://crawl.lantea.net/crawl/morgue/") x))
 
 (defn log->rhf-url
-  "Calls log->url for rl.heh.fi"
-  [x] (log->url (constantly "http://rl.heh.fi/morgue/") x))
+  "Calls log->url for rl.heh.fi, fixing the month problem"
+  [x] (->> (update-in x [:end] #(str (.substring % 0 4) (inc-with-zero (.substring % 4 6)) (.substring % 6 15)))
+           (log->url (constantly "http://rl.heh.fi/morgue/"))))

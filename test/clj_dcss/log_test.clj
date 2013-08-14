@@ -36,4 +36,4 @@
 
 (fact
   (log->rhf-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
-  => "http://rl.heh.fi/morgue/user/morgue-user-20130504-140401.txt")
+  => "http://rl.heh.fi/morgue/user/morgue-user-20130604-140401.txt")

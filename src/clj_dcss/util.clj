@@ -11,3 +11,9 @@
     (if (seq? y)
       (first y)
       y)))
+
+(defn inc-with-zero [x]
+  (let [y (inc (Integer/parseInt x))]
+    (if (< y 10)
+      (str "0" y)
+      (str y))))
