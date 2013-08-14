@@ -41,7 +41,9 @@
     x))
 
 (defn parse-character-str [x]
-  (update-in x [:character] abbrev/normalize-char))
+  (if (string? (:character x))
+    (update-in x [:character] abbrev/normalize-char)
+    x))
 
 (defn process-char
   "Process a DCSS character map, making it more useful and normalized."
