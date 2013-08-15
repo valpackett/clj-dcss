@@ -20,7 +20,7 @@
 
 (defn parse-char
   "Parse a DCSS character file (char dump, morgue file) into a Clojure map."
-  [x] (-> x char->tree tree->map))
+  [x] (-> x (string/split #"Inventory:") first char->tree tree->map))
 
 (defn- count-piety-stars [points]
   (->> points

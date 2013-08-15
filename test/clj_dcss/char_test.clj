@@ -172,7 +172,156 @@ icy, bone, abyssal, demonic, glowing, magical, fiery, dark")
                     :rPois "+", :rRot "+", :sInv "+", :spirit "."}
       :stats {:ac 55, :dex 21, :ev 42, :god "Makhleb", :gold 8937, :hp 300, :int 22, :mhp 300, :mmp 49
               :mp 15, :piety "******", :sh 64, :spell-levels-left 0, :spells 17, :str 31, :xl 27}
-      :score 6527055, :startdate "June 26, 2013", :time "20:17:58", :title "Grand Master", :turns 322969 })
+      :score 6527055, :startdate "June 26, 2013", :time "20:17:58", :title "Grand Master", :turns 322969 }
+
+  (parse-char " Dungeon Crawl Stone Soup version 0.13-a0-2484-gc765b08 (webtiles) character file.
+
+25 Spam the Ducker (level 1, 0/10 HPs)
+             Began as a Felid Berserker on July 20, 2013.
+             Was a Follower of Trog.
+             Slain by a hobgoblin (5 damage)
+             ... on Level 1 of the Dungeon.
+             The game lasted 00:00:35 (253 turns).
+
+Spam the Ducker (Felid Berserker)                    Turns: 253, Time: 00:00:35
+
+HP   0/10        AC  1     Str 13      XL: 1   Next: 66%
+MP   1/1         EV 19     Int  8      God: Trog [*.....]
+Gold 20          SH  0     Dex 15      Spells:  0 memorised,  0 levels left
+                                       Lives: 0, deaths: 0
+
+Res.Fire  : . . .   See Invis. : +     - Unarmed
+Res.Cold  : . . .   Warding    : .   (armour unavailable)
+Life Prot.: . . .   Conserve   : .   (shield unavailable)
+Res.Poison: .       Res.Corr.  : .   (helmet unavailable)
+Res.Elec. : .       Clarity    : .   (cloak unavailable)
+Sust.Abil.: . .     Spirit.Shd : .   (gloves unavailable)
+Res.Mut.  : .       Stasis     : .   (boots unavailable)
+Res.Rott. : .       Flight     : .   (no amulet)
+Saprovore : . . .                    (no ring)
+                                     (no ring)
+
+@: exhausted, slowed, slow, not resistant to hostile enchantments, fairly
+stealthy
+A: paw claws, no armour, no advanced items, fangs 3, see invisible, carnivore 3,
+speed 1, slow metabolism 1, AC +1
+a: Burn Spellbooks, Berserk, Renounce Religion
+
+
+You were on level 1 of the Dungeon.
+You worshipped Trog.
+Trog was pleased with you.
+You were not hungry.
+
+You visited 1 branch of the dungeon, and saw 1 of its levels.
+
+Inventory:
+
+Comestibles
+ c - a meat ration
+
+
+   Skills:
+ - Level 3.0 Fighting
+ + Level 4.2 Dodging
+ + Level 3.2 Unarmed Combat
+
+
+You couldn't memorise any spells.
+You didn't know any spells.
+
+Dungeon Overview and Level Annotations
+
+Branches:
+Dungeon (1/27)            
+
+Altars:
+
+
+Innate Abilities, Weirdness & Mutations
+
+You cannot wear armour.
+You are incapable of any advanced item manipulation.
+Your paws have sharp claws.
+You have razor-sharp teeth.
+You have supernaturally acute eyesight.
+You are carnivorous and can eat meat at any time.
+You cover ground quickly.
+You are covered in fur (AC +1).
+You have a slow metabolism.
+
+
+Message History
+
+You see here a jackal corpse.
+You start butchering the jackal corpse with your claws.
+You continue butchering the corpse.
+Something unseen opens the door. You stop butchering the corpse.
+You start resting.
+You feel a strong urge to attack something.
+A hobgoblin comes into view.
+You are no longer berserk.
+You are exhausted.
+You feel yourself slow down.
+The hobgoblin shouts!
+You scratch the hobgoblin.
+The hobgoblin begins to bleed from its wounds!
+The hobgoblin is heavily wounded.
+The hobgoblin barely misses you.
+You scratch the hobgoblin.
+The hobgoblin is severely wounded.
+The hobgoblin hits you.
+Ouch! That really hurt!
+You die...
+
+       ###
+      ...#+##
+    ###.....#
+    ........#
+     #......#
+     #......#
+     #......#
+     #.....)########
+     #.........g@..#
+######......######.#    ...
+............#    #.#    #.#
+.#####......#    #.#    #.#
+............#    #.#    #.#
+#############    #.#    #.#
+                 #.#    #.#
+                 #.#    #.#
+                 #.#    #.#
+
+
+You could see a hobgoblin (bleeding).
+
+Vanquished Creatures
+  A hobgoblin (D:1)
+  A goblin (D:1)
+  3 jackals (D:1)
+5 creatures vanquished.
+
+Notes
+Turn   | Place    | Note
+--------------------------------------------------------------
+     0 | D:1      | Spam, the Felid Berserker, began the quest for the Orb.
+     0 | D:1      | Reached XP level 1. HP: 10/10 MP: 1/1
+   253 | D:1      | Slain by a hobgoblin
+
+
+Action                   || total
+-------------------------++-------
+Melee: Unarmed           ||    12
+Invok: Berserk           ||     1")
+  => {:character "Felid Berserker", :godtitle "Follower", :title "Ducker"
+      :meta {:interface "webtiles", :version "0.13-a0-2484-gc765b08"}
+      :name "Spam", :score 25, :startdate "July 20, 2013", :time "00:00:35", :turns 253
+      :resistances {:Clar ".", :Cons ".", :Fly ".", :Sap "...", :SustAb "..", :Ward ".", :rC "..."
+                    :rCorr ".", :rElec ".", :rF "...", :rMut ".", :rN "...", :rPois ".", :rRot "."
+                    :sInv "+", :spirit ".", :stasis "."}
+      :stats {:ac 1, :deaths 0, :dex 15, :ev 19, :god "Trog", :gold 20, :hp 0, :int 8, :lives 0
+              :mhp 10, :mmp 1, :mp 1, :percent-of-next-xl 66, :piety "*.....", :sh 0
+              :spell-levels-left 0, :spells 0, :str 13, :xl 1}})
 
 (fact
   (count-piety {:stats {:piety "****.."}}) => {:stats {:piety 4}}

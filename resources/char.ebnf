@@ -1,4 +1,4 @@
-char = meta <whitespace> [scoreline beginning godsummary <text> ending <text> <'.\n\n'>] summary stats resistances <[#'.*']>
+char = meta <whitespace> [scoreline beginning godsummary <text> [ending] <text '.\n\n'>] summary <'\n\n'> stats resistances <[#'.*']>
 
 <whitespace> = #'\s*'
 <letter> = #'[0-9a-zA-Z,-;:!\(\)\+{}\\\"@]'
@@ -10,7 +10,7 @@ meta = <whitespace 'Dungeon Crawl Stone Soup version '> version <' ('> interface
 version = text
 interface = text
 
-<scoreline> = score <text '(level' text ''>
+<scoreline> = score <text ' (level ' text 'HPs)'>
 score = number
 
 <beginning> = <whitespace> <'Began' text ' on '> startdate <'.\n'>
@@ -23,15 +23,15 @@ godtitle = text
 enddate = date
 
 <summary> = name <' the '> title <' ('> character <')' {whitespace} 'Turns: '> turns <', Time: '> time
-name = text
+name = !#'[0-9]' text
 title = text
-character = text
+character = !'level ' text
 turns = number
 time = text
 
-stats = <'\n\n'> stats1 stats2 stats3
+stats = stats1 stats2 stats3 [stats4]
 
-<stats1> = <whitespace> <'HP'> <whitespace> hp <'/'> mhp [<whitespace '('> mmhp <')'>] <whitespace> <'AC'> <whitespace> ac <whitespace> <'Str'> <whitespace> str <whitespace> <'XL:'> <whitespace> xl [<whitespace 'Next: '> percent-of-next-xl <'%'>]
+<stats1> = <whitespace 'HP' whitespace> hp <'/'> mhp [<whitespace '('> mmhp <')'>] <whitespace 'AC' whitespace> ac <whitespace 'Str' whitespace> str <whitespace 'XL:' whitespace> xl [<whitespace 'Next: '> percent-of-next-xl <'%'>]
 hp = number
 mhp = number
 mmhp = number
@@ -40,7 +40,7 @@ str = number
 xl = number
 percent-of-next-xl = number
 
-<stats2> = <whitespace> <'MP'> <whitespace> mp <'/'> mmp [<whitespace '('> mmmp <')'>] <whitespace> <'EV'> <whitespace> ev <whitespace> <'Int'> <whitespace> int <whitespace> <'God: '> <whitespace> [god [<' ['> piety <']'>]]
+<stats2> = <whitespace 'MP' whitespace> mp <'/'> mmp [<whitespace '('> mmmp <')'>] <whitespace 'EV' whitespace> ev <whitespace 'Int' whitespace> int <whitespace 'God: ' whitespace> [god [<' ['> piety <']'>]]
 mp = number
 mmp = number
 mmmp = number
@@ -49,12 +49,16 @@ int = number
 god = text
 piety = #'[\.\*]+'
 
-<stats3> = <whitespace> <'Gold'> <whitespace> gold <whitespace> <'SH'> <whitespace> sh <whitespace> <'Dex'> <whitespace> dex <whitespace> <'Spells:'> <whitespace> spells <' memorised,'> <whitespace> spell-levels-left <' levels left'>
+<stats3> = <whitespace 'Gold' whitespace> gold <whitespace 'SH' whitespace> sh <whitespace 'Dex' whitespace> dex <whitespace 'Spells:' whitespace> spells <' memorised,' whitespace> spell-levels-left <' levels left'>
 gold = number
 sh = number
 dex = number
 spells = number
 spell-levels-left = number
+
+<stats4> = <whitespace 'Lives: '> lives <', deaths: '> deaths
+lives = number
+deaths = number
 
 resistances = <'\n'> resist-line+
 <resist-line> = <'\n'> resist-entry resist-entry <{letter | ' '}>
