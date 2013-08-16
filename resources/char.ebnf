@@ -1,33 +1,33 @@
-char = meta <whitespace> [scoreline beginning godsummary <text> [ending] <text '.\n\n'>] summary <'\n\n'> stats resistances <[#'.*']>
+char = meta <whitespace> [scoreline beginning godsummary <text> [ending] <text '.\n\n'>] summary <'\n\n'> stats resistances <#'.*'>
 
 <whitespace> = #'\s*'
-<letter> = #'[0-9a-zA-Z,-;:!\(\)\+{}\\\"@]'
-text = {letter | '.' | whitespace}
+<letter> = #'[0-9a-zA-Z]+' | '.' | ',' | '-' | ';' | ':' | '!' | '(' | ')' | '+' | '{' | '}' | '\\' | '"' | '@' | '/' | '*'
+text = {letter | whitespace}
 number = #'[0-9-\+]+'
 <date> = #'[a-zA-Z]+ [0-9]+, [0-9]+'
 
 meta = <whitespace 'Dungeon Crawl Stone Soup version '> version <' ('> interface <') character file.'>
-version = text
-interface = text
+version = #'[0-9a-zA-Z-\.]+'
+interface = #'[a-z]+'
 
-<scoreline> = score <text ' (level ' text 'HPs)'>
+<scoreline> = score <#'.*HPs\)'>
 score = number
 
-<beginning> = <whitespace> <'Began' text ' on '> startdate <'.\n'>
+<beginning> = <#'\s*Began.*on '> startdate <'.\n'>
 startdate = date
 
-<godsummary> = <whitespace> <'Was ' ('a' | 'an' | 'the') ' '> godtitle <' of ' text '.\n'>
+<godsummary> = <#'\s*Was [a-z]+ '> godtitle <' of ' text '.\n'>
 godtitle = text
 
-<ending> = <whitespace> <text ' on '> enddate <('.' | '!') '\n'>
+<ending> = <whitespace text ' on '> enddate <('.' | '!') '\n'>
 enddate = date
 
 <summary> = name <' the '> title <' ('> character <')' {whitespace} 'Turns: '> turns <', Time: '> time
 name = !#'[0-9]' text
 title = text
-character = !'level ' text
+character = #'[A-Z][a-zA-Z ]+'
 turns = number
-time = text
+time = #'[0-9:]+'
 
 stats = stats1 stats2 stats3 [stats4]
 
@@ -60,7 +60,7 @@ spell-levels-left = number
 lives = number
 deaths = number
 
-resistances = <'\n'> resist-line+
+resistances = <'\n'> {resist-line}
 <resist-line> = <'\n'> resist-entry resist-entry <{letter | ' '}>
 <resist-entry> = ((rF | sInv | rC | Ward | rN | Cons | rPois | rCorr | rElec | Clar | SustAb | spirit | rMut | stasis | rRot | Fly | Sap) <whitespace>) / <whitespace>
 rF     = <'Res.Fire'>   resist-val
