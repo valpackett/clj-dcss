@@ -205,7 +205,7 @@ Saprovore : . . .                    (no ring)
 stealthy
 A: paw claws, no armour, no advanced items, fangs 3, see invisible, carnivore 3,
 speed 1, slow metabolism 1, AC +1
-a: Burn Spellbooks, Berserk, Renounce Religion
+a: Burn Spellbooks, Berserk, Renounce Religion, Trog's Hand
 
 
 You were on level 1 of the Dungeon.

@@ -1,7 +1,7 @@
 char = meta <whitespace> [scoreline beginning godsummary <text> [ending] <text '.\n\n'>] summary <'\n\n'> stats resistances <#'.*'>
 
 <whitespace> = #'\s*'
-<letter> = #'[0-9a-zA-Z]+' | '.' | ',' | '-' | ';' | ':' | '!' | '(' | ')' | '+' | '{' | '}' | '\\' | '"' | '@' | '/' | '*'
+<letter> = #'[0-9a-zA-Z]+' | '.' | ',' | '-' | ';' | ':' | '!' | '(' | ')' | '+' | '{' | '}' | '\\' | '"' | '@' | '/' | '*' | '\''
 text = {letter | whitespace}
 number = #'[0-9-\+]+'
 <date> = #'[a-zA-Z]+ [0-9]+, [0-9]+'
