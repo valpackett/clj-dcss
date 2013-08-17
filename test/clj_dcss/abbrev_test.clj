@@ -18,11 +18,13 @@
   )
 
 (facts
+  (abbrev-char {:species "Octopode", :background "Wizard"}) => "OpWz"
   (abbrev-char "Octopode Wizard") => "OpWz"
   (abbrev-char "Green Draconian Fire Elementalist") => "DrFE"
   (abbrev-char "DEIE") => "DEIE")
 
 (facts
+  (deabbrev-char {:species "Octopode", :background "Wizard"}) => "Octopode Wizard"
   (deabbrev-char "OpWz") => "Octopode Wizard"
   (deabbrev-char "DrAE") => "Draconian Air Elementalist"
   (deabbrev-char "Green DrSk") => "Green Draconian Skald"

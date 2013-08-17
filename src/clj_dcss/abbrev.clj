@@ -100,15 +100,17 @@
   "Normalizes any character string or abbreviation ('DEFE', 'Octopode Wizard', even 'Green DrEE')
   to a Clojure map with keys :color, :species and :background."
   [x]
-  (let [clr (re-first color-pattern x)
-        x   (if clr (str/replace-first x clr "") x) ; Avoid collisions
-        spc (re-first species-pattern x)
-        x   (str/replace-first x spc "")
-        bkg (re-first background-pattern x)
-        ret {:species (normalize-species spc), :background (normalize-background bkg)}]
-    (if clr
-      (assoc ret :color clr)
-      ret)))
+  (if (string? x)
+    (let [clr (re-first color-pattern x)
+          x   (if clr (str/replace-first x clr "") x) ; Avoid collisions
+          spc (re-first species-pattern x)
+          x   (str/replace-first x spc "")
+          bkg (re-first background-pattern x)
+          ret {:species (normalize-species spc), :background (normalize-background bkg)}]
+      (if clr
+        (assoc ret :color clr)
+        ret))
+    x))
 
 (defn abbrev-char
   "Converts a full character string to an abbreviation (eg. 'Deep Elf Wizard' to 'DEWz')."
