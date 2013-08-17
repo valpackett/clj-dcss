@@ -333,6 +333,10 @@ Invok: Berserk           ||     1")
   (move-godtitle {:stats {}}) => {:stats {}})
 
 (fact
+  (move-god {:stats {:god "Idiot"}}) => {:god "Idiot", :stats {}}
+  (move-god {:stats {}}) => {:stats {}})
+
+(fact
   (parse-character-str {:character "OpEE"})
   => {:character {:species "Octopode", :background "Earth Elementalist"}}
   (parse-character-str {:character "Green Draconian Air Elementalist"})

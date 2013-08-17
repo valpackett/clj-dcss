@@ -35,9 +35,14 @@
 
 (defn move-godtitle [x]
   (if-let [gt (get-in x [:stats :godtitle])]
-    (-> x
-        (assoc :godtitle gt)
+    (-> (assoc x :godtitle gt)
         (update-in [:stats] #(dissoc % :godtitle)))
+    x))
+
+(defn move-god [x]
+  (if-let [g (get-in x [:stats :god])]
+    (-> (assoc x :god g)
+        (update-in [:stats] #(dissoc % :god)))
     x))
 
 (defn parse-character-str [x]
@@ -47,7 +52,7 @@
 
 (defn process-char
   "Process a DCSS character map, making it more useful and normalized."
-  [x] (-> x count-piety move-godtitle parse-character-str))
+  [x] (-> x count-piety move-godtitle move-god parse-character-str))
 
 (defn parse-and-process-char
   "Parse and process a DCSS character file (char dump, morgue file)."
