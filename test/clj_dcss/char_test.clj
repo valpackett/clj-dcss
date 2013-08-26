@@ -254,22 +254,7 @@ You have a slow metabolism.
 Message History
 
 You see here a jackal corpse.
-You start butchering the jackal corpse with your claws.
-You continue butchering the corpse.
-Something unseen opens the door. You stop butchering the corpse.
-You start resting.
-You feel a strong urge to attack something.
-A hobgoblin comes into view.
-You are no longer berserk.
-You are exhausted.
-You feel yourself slow down.
-The hobgoblin shouts!
-You scratch the hobgoblin.
-The hobgoblin begins to bleed from its wounds!
-The hobgoblin is heavily wounded.
-The hobgoblin barely misses you.
-You scratch the hobgoblin.
-The hobgoblin is severely wounded.
+...
 The hobgoblin hits you.
 Ouch! That really hurt!
 You die...
@@ -321,7 +306,43 @@ Invok: Berserk           ||     1")
                     :sInv "+", :spirit ".", :stasis "."}
       :stats {:ac 1, :deaths 0, :dex 15, :ev 19, :god "Trog", :gold 20, :hp 0, :int 8, :lives 0
               :mhp 10, :mmp 1, :mp 1, :percent-of-next-xl 66, :piety "*.....", :sh 0
-              :spell-levels-left 0, :spells 0, :str 13, :xl 1}})
+              :spell-levels-left 0, :spells 0, :str 13, :xl 1}}
+
+  ; Godless
+  (parse-char " Dungeon Crawl Stone Soup version 0.12.2-18-gb8c16a5 (webtiles) character file.
+
+24 floatboth the Vexing (level 1, -2/9 HPs)
+             Began as a Spriggan Enchanter on Aug 21, 2013.
+             Slain by a jackal (3 damage)
+             ... on Level 2 of the Dungeon.
+             The game lasted 00:00:23 (82 turns).
+
+floatboth the Vexing (Spriggan Enchanter)             Turns: 82, Time: 00:00:24
+
+HP  -2/9         AC  0     Str  4      XL: 1   Next: 50%
+MP   4/4         EV 18     Int 16      God: 
+Gold 20          SH  0     Dex 16      Spells:  1 memorised,  1 level left
+
+Res.Fire  : . . .   See Invis. : +   (no weapon)
+Res.Cold  : . . .   Warding    : .   (armour restricted)
+Life Prot.: . . .   Conserve   : .   (shield restricted)
+Res.Poison: .       Res.Corr.  : .   (helmet restricted)
+Res.Elec. : .       Clarity    : .   (no cloak)
+Sust.Abil.: . .     Spirit.Shd : .   (gloves unavailable)
+Res.Mut.  : .       Stasis     : .   (boots unavailable)
+Res.Rott. : .       Ctrl.Telep.: .   (no amulet)
+Saprovore : . . .   Flight     : .   (no ring)
+                                     (no ring)
+
+")
+  => {:character "Spriggan Enchanter", :title "Vexing"
+      :meta {:interface "webtiles", :version "0.12.2-18-gb8c16a5"}
+      :name "floatboth", :score 24, :startdate "Aug 21, 2013", :time "00:00:24", :turns 82
+      :resistances {:Clar ".", :Cons ".", :Fly ".", :Sap "...", :SustAb "..", :Ward ".", :rC "..."
+                    :rCorr ".", :rElec ".", :rF "...", :rMut ".", :rN "...", :rPois ".", :rRot "."
+                    :sInv "+", :spirit ".", :stasis "."}
+      :stats {:ac 0, :dex 16, :ev 18, :gold 20, :hp -2, :int 16, :mhp 9, :mmp 4, :mp 4
+              :percent-of-next-xl 50, :sh 0, :spell-levels-left 1, :spells 1, :str 4, :xl 1}})
 
 (fact
   (count-piety {:stats {:piety "****.."}}) => {:stats {:piety 4}}

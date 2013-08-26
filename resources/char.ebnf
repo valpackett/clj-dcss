@@ -1,4 +1,4 @@
-char = meta <whitespace> [scoreline beginning godsummary <text> [ending] <text '.\n\n'>] summary <'\n\n'> stats resistances <#'.*'>
+char = meta <whitespace> [scoreline beginning (godsummary / <text>) <text> (ending / <text>) <text '.\n\n'>] summary <'\n\n'> stats resistances <#'.*'>
 
 <whitespace> = #'\s*'
 <letter> = #'[0-9a-zA-Z]+' | '.' | ',' | '-' | ';' | ':' | '!' | '(' | ')' | '+' | '{' | '}' | '\\' | '"' | '@' | '/' | '*' | '\''
@@ -40,16 +40,16 @@ str = number
 xl = number
 percent-of-next-xl = number
 
-<stats2> = <whitespace 'MP' whitespace> mp <'/'> mmp [<whitespace '('> mmmp <')'>] <whitespace 'EV' whitespace> ev <whitespace 'Int' whitespace> int <whitespace 'God: ' whitespace> [god [<' ['> piety <']'>]]
+<stats2> = <whitespace 'MP' whitespace> mp <'/'> mmp [<whitespace '('> mmmp <')'>] <whitespace 'EV' whitespace> ev <whitespace 'Int' whitespace> int <whitespace 'God: '> [<whitespace> god [ <' ['> piety <']'> ]]
 mp = number
 mmp = number
 mmmp = number
 ev = number
 int = number
-god = text
+god = !'Gold' text
 piety = #'[\.\*]+'
 
-<stats3> = <whitespace 'Gold' whitespace> gold <whitespace 'SH' whitespace> sh <whitespace 'Dex' whitespace> dex <whitespace 'Spells:' whitespace> spells <' memorised,' whitespace> spell-levels-left <' levels left'>
+<stats3> = <whitespace 'Gold' whitespace> gold <whitespace 'SH' whitespace> sh <whitespace 'Dex' whitespace> dex <whitespace 'Spells:' whitespace> spells <' memorised,' whitespace> spell-levels-left <' level' ['s'] ' left'>
 gold = number
 sh = number
 dex = number
