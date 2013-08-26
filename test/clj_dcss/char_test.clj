@@ -342,7 +342,37 @@ Saprovore : . . .   Flight     : .   (no ring)
                     :rCorr ".", :rElec ".", :rF "...", :rMut ".", :rN "...", :rPois ".", :rRot "."
                     :sInv "+", :spirit ".", :stasis "."}
       :stats {:ac 0, :dex 16, :ev 18, :gold 20, :hp -2, :int 16, :mhp 9, :mmp 4, :mp 4
-              :percent-of-next-xl 50, :sh 0, :spell-levels-left 1, :spells 1, :str 4, :xl 1}})
+              :percent-of-next-xl 50, :sh 0, :spell-levels-left 1, :spells 1, :str 4, :xl 1}}
+
+  ; Drained stats
+  ; https://crawl.develz.org/tavern/viewtopic.php?f=12&t=9099
+  (parse-char "Dungeon Crawl Stone Soup version 0.13-a0-2772-g9cbdda8 (console) character file.
+
+Corgat the Severer (Lava Orc Monk)                 Turns: 26412, Time: 04:17:19
+
+HP 142/143 (144) AC 32     Str 23      XL: 16   Next: 15%
+MP  25/25        EV 15     Int  8 (10) God: the Shining One [*****.]
+Gold 1350        SH  0     Dex 18      Spells:  0 memorised, 15 levels left
+
+Res.Fire  : + . .   See Invis. : .   a - +2,+1 battleaxe (flame)
+Res.Cold  : + . .   Warding    : .   Z - +4 chain mail {MR+}
+Life Prot.: + + +   Conserve   : +   (no shield)
+Res.Poison: .       Res.Corr.  : .   w - +2 helmet
+Res.Elec. : +       Clarity    : .   f - +0 cloak of Starlight  rElec rC+ EV+4 Stlt
+Sust.Abil.: . .     Spirit.Shd : .   v - +1 pair of elf gloves
+Res.Mut.  : .       Stasis     : .   y - +1 pair of boots
+Res.Rott. : .       Flight     : .   P - amulet of conservation
+Saprovore : + . .                    U - +5 ring of strength
+                                     r - +3,+6 ring of slaying")
+  => {:character "Lava Orc Monk", :title "Severer"
+      :meta {:interface "console", :version "0.13-a0-2772-g9cbdda8"}
+      :name "Corgat", :time "04:17:19", :turns 26412
+      :resistances {:Clar ".", :Cons "+", :Fly ".", :Sap "+..", :SustAb "..", :Ward ".", :rC "+.."
+                    :rCorr ".", :rElec "+", :rF "+..", :rMut ".", :rN "+++", :rPois ".", :rRot "."
+                    :sInv ".", :spirit ".", :stasis "."}
+      :stats {:ac 32, :dex 18, :ev 15, :gold 1350, :hp 142, :mhp 143, :mmhp 144, :mp 25, :mmp 25
+              :percent-of-next-xl 15, :sh 0, :spell-levels-left 15, :spells 0, :str 23, :xl 16
+              :int 8, :mint 10, :god "the Shining One", :piety "*****."}})
 
 (fact
   (count-piety {:stats {:piety "****.."}}) => {:stats {:piety 4}}

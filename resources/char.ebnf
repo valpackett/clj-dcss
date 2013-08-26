@@ -31,28 +31,31 @@ time = #'[0-9:]+'
 
 stats = stats1 stats2 stats3 [stats4]
 
-<stats1> = <whitespace 'HP' whitespace> hp <'/'> mhp [<whitespace '('> mmhp <')'>] <whitespace 'AC' whitespace> ac <whitespace 'Str' whitespace> str <whitespace 'XL:' whitespace> xl [<whitespace 'Next: '> percent-of-next-xl <'%'>]
+<stats1> = <whitespace 'HP' whitespace> hp <'/'> mhp [<whitespace '('> mmhp <')'>] <whitespace 'AC' whitespace> ac <whitespace 'Str' whitespace> str [<whitespace '('> mstr <')'>] <whitespace 'XL:' whitespace> xl [<whitespace 'Next: '> percent-of-next-xl <'%'>]
 hp = number
 mhp = number
 mmhp = number
 ac = number
 str = number
+mstr = number
 xl = number
 percent-of-next-xl = number
 
-<stats2> = <whitespace 'MP' whitespace> mp <'/'> mmp [<whitespace '('> mmmp <')'>] <whitespace 'EV' whitespace> ev <whitespace 'Int' whitespace> int <whitespace 'God: '> [<whitespace> god [ <' ['> piety <']'> ]]
+<stats2> = <whitespace 'MP' whitespace> mp <'/'> mmp [<whitespace '('> mmmp <')'>] <whitespace 'EV' whitespace> ev <whitespace 'Int' whitespace> int [<whitespace '('> mint <')'>] <whitespace 'God: '> [<whitespace> god [ <' ['> piety <']'> ]]
 mp = number
 mmp = number
 mmmp = number
 ev = number
 int = number
+mint = number
 god = !'Gold' text
 piety = #'[\.\*]+'
 
-<stats3> = <whitespace 'Gold' whitespace> gold <whitespace 'SH' whitespace> sh <whitespace 'Dex' whitespace> dex <whitespace 'Spells:' whitespace> spells <' memorised,' whitespace> spell-levels-left <' level' ['s'] ' left'>
+<stats3> = <whitespace 'Gold' whitespace> gold <whitespace 'SH' whitespace> sh <whitespace 'Dex' whitespace> dex [<whitespace '('> mdex <')'>] <whitespace 'Spells:' whitespace> spells <' memorised,' whitespace> spell-levels-left <' level' ['s'] ' left'>
 gold = number
 sh = number
 dex = number
+mdex = number
 spells = number
 spell-levels-left = number
 
