@@ -27,6 +27,14 @@
    into a Clojure map."
   [x] (-> x log->tree tree->map keywordize-keys))
 
+(defn quick-parse-log-for-url
+  "Quickly extracts 'v', 'name' and 'end' from a DCSS log entry into a Clojure map."
+  [x]
+  (let [m (drop 1 (re-matches #"^v=([^:]+).*name=([^:]+).*end=([^:]+).*" x))]
+    {:v (first m)
+     :name (second m)
+     :end (last m)}))
+
 (defn- fix-timestamp [x]
   (format "%s-%s" (.substring x 0 8) (.substring x 8 14)))
 

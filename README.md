@@ -19,6 +19,9 @@ A Clojure library for parsing and processing [Dungeon Crawl Stone Soup](https://
 (clog/parse-log "v=0.13-a0:lv=0.1:name=user:race=Naga:cls=Warper:char=NaWr:xl=2:sk=Translocations:sklev=3:title=Grasshopper:place=D::2:br=D:lvl=2:absdepth=2:hp=-2:mhp=25:mmhp=25")
 ; =>  {:v "0.13-a0", :lv "0.1", :name "user", :race "Naga", :cls "Warper", :char "NaWr", :xl 2, :sk "Translocations", :sklev 3, :title "Grasshopper", :place "D::2", :br "D", :lvl 2, :absdepth 2, :hp -2, :mhp 25, :mmhp 25}
 
+; Much faster:
+(clog/quick-parse-log-for-url "v=0.13-a0:lv=0.1:name=user:race=Naga:cls=Warper:char=NaWr:xl=2:sk=Translocations:sklev=3:title=Grasshopper:place=D::2:br=D:lvl=2:absdepth=2:hp=-2:mhp=25:mmhp=25:end=20130504140401S")
+; =>  {:v "0.13-a0", :name "user", :end "20130504140401S"}
 
 (clog/log->cao-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
 ; => "http://crawl.akrasiac.org/rawdata/user/morgue-user-20130504-140401.txt"
