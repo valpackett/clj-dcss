@@ -372,7 +372,43 @@ Saprovore : + . .                    U - +5 ring of strength
                     :sInv ".", :spirit ".", :stasis "."}
       :stats {:ac 32, :dex 18, :ev 15, :gold 1350, :hp 142, :mhp 143, :mmhp 144, :mp 25, :mmp 25
               :percent-of-next-xl 15, :sh 0, :spell-levels-left 15, :spells 0, :str 23, :xl 16
-              :int 8, :mint 10, :god "the Shining One", :piety "*****."}})
+              :int 8, :mint 10, :god "the Shining One", :piety "*****."}}
+
+  ; 0.11
+  ; https://crawl.develz.org/tavern/viewtopic.php?f=12&t=9197
+  (parse-char "Dungeon Crawl Stone Soup version 0.11.0 (tiles) character file.
+
+Arromire the Merry Centaur (Centaur Hunter)       Turns: 116083, Time: 10:02:00
+
+HP 255/255 (260) AC 26     Str 14      XL: 27
+MP  31/31        EV 29     Int  9 (10) God: Okawaru [******]
+Gold 2788        SH  0     Dex 25      Spells:  3 memorised, 29 levels left
+
+Res.Fire  : + . .   See Invis. : +   X - +8 storm bow {elec}
+Res.Cold  : . . .   Warding    : .   S - +4 robe \"Thranulemn\" {god gift, Dex+3}
+Life Prot.: + . .   Conserve   : +   (no shield)
+Res.Poison: .       Res.Corr.  : +   g - +2 helmet {SInv}
+Res.Elec. : +       Clarity    : .   A - +2 cloak {rCorr, Cons}
+Sust.Abil.: + .     Spirit.Shd : .   z - +0 pair of gloves of Beyond {god gift, Str
+Res.Mut.  : .       Stasis     : .   H - +1 centaur barding \"Boenurem\" {Dam+3}
+Res.Rott. : .       Ctrl.Telep.: .   y - amulet \"Femis\" {Cons rElec rN+ Dam+3}
+Saprovore : . . .   Levitation : .   L - ring of Rink {SustAb +Blink rF+ Acc+3}
+                    Ctrl.Flight: .   Q - ring of regeneration
+
+@: very quick, quite resistant to hostile enchantments, fairly stealthy
+A: hooves 3, deformed body, herbivore 1, speed 2, fast metabolism 1, screaming
+1, tough skin 3, Str -1
+a: Heroism, Finesse, Renounce Religion, Evoke Blink
+}: 4/15 runes: serpentine, barnacled, silver, abyssal")
+  => {:character "Centaur Hunter", :title "Merry Centaur"
+      :meta {:interface "tiles", :version "0.11.0"}
+      :name "Arromire", :time "10:02:00", :turns 116083
+      :resistances {:Clar ".", :Cons "+", :Sap "...", :SustAb "+.", :Ward ".", :rC "..."
+                    :rCorr "+", :rElec "+", :rF "+..", :rMut ".", :rN "+..", :rPois "."
+                    :rRot ".", :sInv "+", :spirit ".", :stasis "."}
+      :stats {:ac 26, :dex 25, :ev 29, :god "Okawaru", :gold 2788, :hp 255, :int 9, :mhp 255
+              :mint 10, :mmhp 260, :mmp 31, :mp 31, :piety "******", :sh 0
+              :spell-levels-left 29, :spells 3, :str 14, :xl 27}})
 
 (fact
   (count-piety {:stats {:piety "****.."}}) => {:stats {:piety 4}}
