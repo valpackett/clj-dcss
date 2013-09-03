@@ -1,14 +1,15 @@
-char = meta <whitespace> [scoreline beginning (godsummary / <text>) <text> (ending / <text>) <text '.\n\n'>] summary <'\n\n'> stats resistances <#'.*'>
+char = meta <whitespace> [endsnippet] summary <'\n\n'> stats resistances <#'.*'>
 
 <whitespace> = #'\s*'
-<letter> = #'[0-9a-zA-Z]+' | '.' | ',' | '-' | ';' | ':' | '!' | '(' | ')' | '+' | '{' | '}' | '\\' | '"' | '@' | '/' | '*' | '\''
-text = {letter | whitespace}
-number = #'[0-9-\+]+'
+text = {#'[0-9a-zA-Z,@\-\+;:!\(\)\{\}\\"\*]+' | '.' | '/' | '\'' | whitespace}
+number = #'[0-9\-\+]+'
 <date> = #'[a-zA-Z]+ [0-9]+, [0-9]+'
 
 meta = <whitespace 'Dungeon Crawl Stone Soup version '> version <' ('> interface <') character file.'>
 version = #'[0-9a-zA-Z-\.]+'
 interface = #'[a-z]+'
+
+<endsnippet> = scoreline beginning (godsummary / <#'.*\n'>) <text> (ending / <#'.*\n'>) <#'[^\.]*\.\n\n'>
 
 <scoreline> = score <#'.*HPs\)'>
 score = number
@@ -19,7 +20,7 @@ startdate = date
 <godsummary> = <#'\s*Was [a-z]+ '> godtitle <' of ' text '.\n'>
 godtitle = text
 
-<ending> = <whitespace text ' on '> enddate <('.' | '!') '\n'>
+<ending> = <text ' on '> enddate <('.' | '!') '\n'>
 enddate = date
 
 <summary> = name <' the '> title <' ('> character <')' {whitespace} 'Turns: '> turns <', Time: '> time
@@ -51,7 +52,7 @@ mint = number
 god = !'Gold' text
 piety = #'[\.\*]+'
 
-<stats3> = <whitespace 'Gold' whitespace> gold <whitespace 'SH' whitespace> sh <whitespace 'Dex' whitespace> dex [<whitespace '('> mdex <')'>] <whitespace 'Spells:' whitespace> spells <' memorised,' whitespace> spell-levels-left <' level' ['s'] ' left'>
+<stats3> = <whitespace 'Gold' whitespace> gold <whitespace 'SH' whitespace> sh <whitespace 'Dex' whitespace> dex [<whitespace '('> mdex <')'>] <whitespace 'Spells:' whitespace> spells <' memorised,' whitespace> spell-levels-left <#' levels? left'>
 gold = number
 sh = number
 dex = number
@@ -64,7 +65,7 @@ lives = number
 deaths = number
 
 resistances = <'\n'> {resist-line}
-<resist-line> = <'\n'> resist-entry resist-entry <{letter | ' '}>
+<resist-line> = <'\n'> resist-entry resist-entry <#'[^\n]*'>
 <resist-entry> = ((rF | sInv | rC | Ward | rN | Cons | rPois | rCorr | rElec | Clar | SustAb | spirit | rMut | stasis | rRot | Fly | Sap) <whitespace>) / <whitespace>
 rF     = <'Res.Fire'>   resist-val
 sInv   = <'See Invis.'> resist-val
