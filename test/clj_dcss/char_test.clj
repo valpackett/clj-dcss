@@ -408,7 +408,56 @@ a: Heroism, Finesse, Renounce Religion, Evoke Blink
                     :rRot ".", :sInv "+", :spirit ".", :stasis "."}
       :stats {:ac 26, :dex 25, :ev 29, :god "Okawaru", :gold 2788, :hp 255, :int 9, :mhp 255
               :mint 10, :mmhp 260, :mmp 31, :mp 31, :piety "******", :sh 0
-              :spell-levels-left 29, :spells 3, :str 14, :xl 27}})
+              :spell-levels-left 29, :spells 3, :str 14, :xl 27}}
+
+  ; Time over a day!
+  ; https://crawl.develz.org/tavern/viewtopic.php?f=12&t=8904
+  (parse-char " Dungeon Crawl Stone Soup version 0.13-a0-2586-gd3544ab (webtiles) character file.
+
+9118281 SchwaWarrior the Sorcerer (level 27, 231/231 (245) HPs)
+             Began as a Demonspawn Abyssal Knight on July 30, 2013.
+             Was a High Priest of Jiyva.
+             Escaped with the Orb
+             ... and 15 runes on Aug 2, 2013!
+             
+             The game lasted 1day 00:56:00 (187320 turns).
+
+SchwaWarrior the Sorcerer (DsAK)               Turns: 187320, Time: 1, 00:56:00
+
+HP 231/231 (245) AC 33     Str 19      XL: 27
+MP  48/54        EV 21     Int 28      God: Jiyva [*****.]
+Gold 141         SH 37     Dex 18      Spells: 17 memorised,  6 levels left
+
+Res.Fire  : + + +   See Invis. : +   a - +8 demon trident (distort)  SugarStick.EXE
+Res.Cold  : + + +   Warding    : .   e - +10 pearl dragon armour (curse)
+Life Prot.: + + +   Conserve   : .   j - +5 shield of Resistance {rF+ rC+ MR+}
+Res.Poison: +       Res.Corr.  : +   s - +3 hat of Pondering  ponderous, MR+ MP+10
+Res.Elec. : .       Clarity    : .   L - +2 cloak \"Gudetat\" {Int-2 Dam+3}
+Sust.Abil.: . .     Spirit.Shd : .   E - +2 pair of gauntlets {Str+3} (curse)
+Res.Mut.  : .       Stasis     : .   (boots unavailable)
+Res.Rott. : .       Flight     : .   f - cursed amulet \"Mokhli\" {+Rage Acc+6 Dam+2}
+Saprovore : . . .                    U - cursed ring of Fuimus {rF+ rC+ MR Int+2}
+                                     K - cursed ring \"Loegazea\" {rC+ MR++ Str+5 Acc
+
+@: burdened, repel missiles, very slightly contaminated, very slow, uncannily
+resistant to hostile enchantments, extremely unstealthy
+A: hooves 3, repel missiles, see invisible, conserve scrolls, demonic guardian
+3, fire resistance 1, ignite blood, life protection 2, poison resistance, 50%
+torment resistance, pseudopods 1, absorbing missiles, EV +4, Str +2, Dex -2
+a: Request Jelly, Jelly Paralyse, Slimify, Cure Bad Mutation, Renounce Religion,
+Evoke Berserk Rage
+}: 15/15 runes: barnacled, slimy, silver, golden, iron, obsidian, icy, bone,
+abyssal, demonic, glowing, magical, fiery, dark, gossamer
+")
+  => {:character "DsAK", :enddate "Aug 2, 2013", :godtitle "High Priest"
+      :meta {:interface "webtiles", :version "0.13-a0-2586-gd3544ab"}
+      :name "SchwaWarrior", :score 9118281, :startdate "July 30, 2013"
+      :resistances {:Clar ".", :Cons ".", :Fly ".", :Sap "...", :SustAb "..", :Ward ".", :rC "+++"
+                    :rCorr "+", :rElec ".", :rF "+++", :rMut ".", :rN "+++", :rPois "+", :rRot "."
+                    :sInv "+", :spirit ".", :stasis "."}
+       :stats {:ac 33, :dex 18, :ev 21, :god "Jiyva", :gold 141, :hp 231, :int 28, :mhp 231, :mmhp 245
+               :mmp 54, :mp 48, :piety "*****.", :sh 37, :spell-levels-left 6, :spells 17, :str 19, :xl 27}
+      :time "1, 00:56:00", :title "Sorcerer", :turns 187320})
 
 (fact
   (count-piety {:stats {:piety "****.."}}) => {:stats {:piety 4}}
