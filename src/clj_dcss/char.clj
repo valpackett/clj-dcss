@@ -15,6 +15,12 @@
      :meta  (fn [& args] [:meta (into {} args)])
      :stats (fn [& args] [:stats (into {} args)])
      :resistances (fn [& args] [:resistances (into {} args)])
+     :summary (fn [& args]
+                (let [a (into {} args)
+                      nt (.split (:name-and-title a) " the ")]
+                  (-> (dissoc a :name-and-title)
+                      (assoc :name (string/trim (first nt)))
+                      (assoc :title (string/trim (last nt))))))
      :char  (fn [& args] (into {} args))}
     x))
 

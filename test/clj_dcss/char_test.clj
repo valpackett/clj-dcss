@@ -457,7 +457,39 @@ abyssal, demonic, glowing, magical, fiery, dark, gossamer
                     :sInv "+", :spirit ".", :stasis "."}
        :stats {:ac 33, :dex 18, :ev 21, :god "Jiyva", :gold 141, :hp 231, :int 28, :mhp 231, :mmhp 245
                :mmp 54, :mp 48, :piety "*****.", :sh 37, :spell-levels-left 6, :spells 17, :str 19, :xl 27}
-      :time "1, 00:56:00", :title "Sorcerer", :turns 187320})
+      :time "1, 00:56:00", :title "Sorcerer", :turns 187320}
+
+  (parse-char " Dungeon Crawl Stone Soup version 0.11-a0-2388-g9c8974f (console) character file.
+
+148 dev the Grave Robber (level 3, -1/28 HPs)
+             Began as a Deep Dwarf Necromancer on June 22, 2012.
+             Slain by an inept door mimic (2 damage)
+             ... on Level 2 of the Dungeon.
+             The game lasted 00:03:19 (1242 turns).
+
+dev the Grave Robber (Deep Dwarf Necromancer)       Turns: 1242, Time: 00:03:19
+
+HP  -1/28        AC  3     Str 11      XL: 3   Next:  3%
+MP   3/5         EV 12     Int 16      God: 
+Gold 121         SH  0     Dex 13      Spells:  1 memorised,  3 levels left
+
+Res.Fire  : . . .   See Invis. : .   (no weapon)
+Res.Cold  : . . .   Warding    : .   a - +0 robe
+Life Prot.: . . .   Conserve   : .   (no shield)
+Res.Poison: .       Res.Corr.  : .   (no helmet)
+Res.Elec. : .       Clarity    : .   g - +0 orc cloak
+Sust.Abil.: . .     Spirit.Shd : .   (no gloves)
+Res.Mut.  : .       Stasis     : .   (no boots)
+Res.Rott. : .       Ctrl.Telep.: .   (no amulet)
+Saprovore : . . .   Levitation : .   (no ring)
+                    Ctrl.Flight: .   (no ring)")
+  => {:character "Deep Dwarf Necromancer", :score 148, :startdate "June 22, 2012"
+      :meta {:interface "console", :version "0.11-a0-2388-g9c8974f"}
+      :name "dev", :time "00:03:19", :title "Grave Robber", :turns 1242
+      :resistances {:Clar ".", :Cons ".", :Sap "...", :SustAb "..", :Ward ".", :rC "...", :rCorr "."
+                    :rElec ".", :rF "...", :rMut ".", :rN "...", :rPois ".", :rRot ".", :sInv ".", :spirit ".", :stasis "."}
+      :stats {:ac 3, :dex 13, :ev 12, :gold 121, :hp -1, :int 16, :mhp 28, :mmp 5, :mp 3, :percent-of-next-xl 3
+              :sh 0, :spell-levels-left 3, :spells 1, :str 11, :xl 3}})
 
 (fact
   (count-piety {:stats {:piety "****.."}}) => {:stats {:piety 4}}

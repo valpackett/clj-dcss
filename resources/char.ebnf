@@ -9,7 +9,7 @@ meta = <whitespace 'Dungeon Crawl Stone Soup version '> version <' ('> interface
 version = #'[0-9a-zA-Z-\.]+'
 interface = #'[a-z]+'
 
-<endsnippet> = scoreline beginning (godsummary / <#'.*\n'>) <text> (ending / <#'.*\n'>) <#'[^\.]*\.\n\n'>
+<endsnippet> = scoreline beginning (godsummary / <text>) (ending / <text>) <[text] '.\n\n'>
 
 <scoreline> = score <#'.*HPs\)'>
 score = number
@@ -23,16 +23,15 @@ godtitle = text
 <ending> = <text ' on '> enddate <('.' | '!') '\n'>
 enddate = date
 
-<summary> = name <' the '> title <' ('> character <')' {whitespace} 'Turns: '> turns <', Time: '> time
-name = !#'[0-9]' text
-title = text
+summary = name-and-title <'('> character <')' whitespace 'Turns: '> turns <', Time: '> time
+name-and-title = #'[^(]+'
 character = #'[A-Z][a-zA-Z ]+'
 turns = number
 time = #'([0-9]+, )?[0-9:]+'
 
 stats = stats1 stats2 stats3 [stats4]
 
-<stats1> = <whitespace 'HP' whitespace> hp <'/'> mhp [<whitespace '('> mmhp <')'>] <whitespace 'AC' whitespace> ac <whitespace 'Str' whitespace> str [<whitespace '('> mstr <')'>] <whitespace 'XL:' whitespace> xl [<whitespace 'Next: '> percent-of-next-xl <'%'>]
+<stats1> = <whitespace 'HP' whitespace> hp <'/'> mhp [<whitespace '('> mmhp <')'>] <whitespace 'AC' whitespace> ac <whitespace 'Str' whitespace> str [<whitespace '('> mstr <')'>] <whitespace 'XL:' whitespace> xl [<whitespace 'Next:' whitespace> percent-of-next-xl <'%'>]
 hp = number
 mhp = number
 mmhp = number
