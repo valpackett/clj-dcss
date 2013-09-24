@@ -38,11 +38,14 @@
 (defn- fix-timestamp [x]
   (format "%s-%s" (.substring x 0 8) (.substring x 8 14)))
 
+(defn- fix-month [x]
+  (str (.substring x 0 4) (inc-with-zero (.substring x 4 6)) (.substring x 6 15)))
+
 (defn log->url
   "Turns a parsed DCSS log entry into a morgue URL, given
   a function that returns a host URL based on the entry."
   [f x]
-  (format "%s%s/morgue-%s-%s.txt" (f x) (:name x) (:name x) (fix-timestamp (:end x))))
+  (format "%s%s/morgue-%s-%s.txt" (f x) (:name x) (:name x) (-> x :end fix-month fix-timestamp)))
 
 (defn log->cao-url
   "Calls log->url for crawl.akrasiac.org"
@@ -61,6 +64,5 @@
   [x] (log->url (constantly "http://crawl.lantea.net/crawl/morgue/") x))
 
 (defn log->rhf-url
-  "Calls log->url for rl.heh.fi, fixing the month problem"
-  [x] (->> (update-in x [:end] #(str (.substring % 0 4) (inc-with-zero (.substring % 4 6)) (.substring % 6 15)))
-           (log->url (constantly "http://rl.heh.fi/morgue/"))))
+  "Calls log->url for rl.heh.fi"
+  [x] (log->url (constantly "http://rl.heh.fi/morgue/") x))

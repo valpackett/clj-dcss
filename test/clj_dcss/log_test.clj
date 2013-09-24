@@ -18,25 +18,25 @@
 (fact
   (log->url (fn [{:keys [v]}] (str "crawltp://" v "/games/"))
             {:v "0.13-a0", :name "user", :end "20130504140401S"})
-  => "crawltp://0.13-a0/games/user/morgue-user-20130504-140401.txt") ; lol
+  => "crawltp://0.13-a0/games/user/morgue-user-20130604-140401.txt") ; lol
 
 (fact
   (log->cao-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
-  => "http://crawl.akrasiac.org/rawdata/user/morgue-user-20130504-140401.txt")
+  => "http://crawl.akrasiac.org/rawdata/user/morgue-user-20130604-140401.txt")
 
 (facts
   (log->cdo-url {:v "0.12.1", :name "user", :end "20130504140401S"})
-  => "http://crawl.develz.org/morgues/0.12/user/morgue-user-20130504-140401.txt"
+  => "http://crawl.develz.org/morgues/0.12/user/morgue-user-20130604-140401.txt"
   (log->cdo-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
-  => "http://crawl.develz.org/morgues/trunk/user/morgue-user-20130504-140401.txt")
+  => "http://crawl.develz.org/morgues/trunk/user/morgue-user-20130604-140401.txt")
 
 (fact
   (log->cszo-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
-  => "http://dobrazupa.org/morgue/user/morgue-user-20130504-140401.txt")
+  => "http://dobrazupa.org/morgue/user/morgue-user-20130604-140401.txt")
 
 (fact
   (log->clan-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
-  => "http://crawl.lantea.net/crawl/morgue/user/morgue-user-20130504-140401.txt")
+  => "http://crawl.lantea.net/crawl/morgue/user/morgue-user-20130604-140401.txt")
 
 (fact
   (log->rhf-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
