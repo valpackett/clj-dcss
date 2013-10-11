@@ -7,7 +7,7 @@
 (defn trunk?
   "Checks if given (full or major) DCSS version is trunk.
   To update trunk version without updating code, set the CRAWL_TRUNK environment variable."
-  [x] (= (or (System/getenv "CRAWL_TRUNK") "0.13") (full->major x)))
+  [x] (= (or (System/getenv "CRAWL_TRUNK") "0.14") (full->major x)))
 
 (defn normalize
   "Extracts the major version using full->major, but returns 'trunk' if it's trunk."
