@@ -27,7 +27,7 @@
 (facts
   (log->cdo-url {:v "0.12.1", :name "user", :end "20130504140401S"})
   => "http://crawl.develz.org/morgues/0.12/user/morgue-user-20130604-140401.txt"
-  (log->cdo-url {:v "0.13-a0", :name "user", :end "20130504140401S"})
+  (log->cdo-url {:v "0.14-a0", :name "user", :end "20130504140401S"})
   => "http://crawl.develz.org/morgues/trunk/user/morgue-user-20130604-140401.txt")
 
 (fact
