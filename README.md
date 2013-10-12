@@ -1,7 +1,7 @@
 Current [semantic](http://semver.org/) version:
 
 ```clojure
-[clj-dcss "0.1.0-SNAPSHOT"]
+[clj-dcss "0.1.0"]
 ```
 
 # clj-dcss

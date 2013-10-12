@@ -1,4 +1,4 @@
-(defproject clj-dcss "0.1.0-SNAPSHOT"
+(defproject clj-dcss "0.1.0"
   :description "A Clojure library for parsing and processing Dungeon Crawl Stone Soup data."
   :url "https://github.com/myfreeweb/clj-dcss"
   :license {:name "WTFPL"
