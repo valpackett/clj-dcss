@@ -19,7 +19,7 @@
    "Ghoul"          "Gh"
    "Gnome"          "Gn" ; Removed in 0.6
    "Grey Elf"       "GE" ; Removed in 0.5
-   "Grotesk"        "Gr"
+   "Grotesk"        "Gr" ; Renamed to Gargoyle while 0.13 was trunk
    "Halfling"       "Ha"
    "High Elf"       "HE"
    "Hill Dwarf"     "HD" ; Removed in 0.3

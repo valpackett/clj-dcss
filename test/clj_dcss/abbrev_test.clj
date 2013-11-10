@@ -27,5 +27,6 @@
   (deabbrev-char {:species "Octopode", :background "Wizard"}) => "Octopode Wizard"
   (deabbrev-char "OpWz") => "Octopode Wizard"
   (deabbrev-char "DrAE") => "Draconian Air Elementalist"
+  (deabbrev-char "GrEE") => "Gargoyle Earth Elementalist" ; important to make sure it's not "Grotesk"
   (deabbrev-char "Green DrSk") => "Green Draconian Skald"
   (deabbrev-char "Deep Elf Wizard") => "Deep Elf Wizard")
