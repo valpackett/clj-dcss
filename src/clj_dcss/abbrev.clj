@@ -14,6 +14,7 @@
    "Draconian"      "Dr"
    "Elf"            "El" ; Removed in 0.3
    "Felid"          "Fe"
+   "Formicid"       "Fo"
    "Gargoyle"       "Gr"
    "Ghoul"          "Gh"
    "Gnome"          "Gn" ; Removed in 0.6
