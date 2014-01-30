@@ -459,6 +459,43 @@ abyssal, demonic, glowing, magical, fiery, dark, gossamer
                :mmp 54, :mp 48, :piety "*****.", :sh 37, :spell-levels-left 6, :spells 17, :str 19, :xl 27}
       :time "1, 00:56:00", :title "Sorcerer", :turns 187320}
 
+  ; Version 0.14 -- new resist abbreviations
+  ; http://crawl.akrasiac.org/rawdata/zejeff/morgue-zejeff-20140129-155620.txt
+  (parse-char " Dungeon Crawl Stone Soup version 0.14-a0-2327-g5ff15cf (webtiles) character file.
+
+3465 zejeff the Covert (level 10, -15/96 HPs)
+             Began as a Kobold Berserker on Jan 29, 2014.
+             Was a High Priest of Trog.
+             Demolished by an orc warrior
+             ... wielding a +0,+3 orcish short sword
+              (16 damage)
+             ... on Level 7 of the Dungeon.
+             The game lasted 00:21:20 (7629 turns).
+
+zejeff the Covert (Kobold Berserker)                Turns: 7629, Time: 00:21:20
+
+HP -15/96        AC  6     Str 22      XL: 10   Next: 13%
+MP  10/10        EV 14     Int  5      God: Trog [*****.]
+Gold 370         SH  0     Dex 18      Spells:  0 memorised,  9 levels left
+
+rFire  . . .     SeeInvis .     A - +0,+1 short sword (curse)
+rCold  . . .     Clarity  .     C - +1 orc leather armour
+rNeg   . . .     Conserve .     (no shield)
+rPois  .         rCorr    .     i - +1 dwarf helmet (curse)
+rElec  .         rRot     .     (no cloak)
+SustAb + .       Spirit   .     (no gloves)
+rMut   .         Warding  .     (no boots)
+Saprov + + .     Stasis   .     (no amulet)
+MR     .....                    (no ring)
+                                q - ring of sustain abilities")
+  => {:character "Kobold Berserker", :score 3465, :startdate "Jan 29, 2014"
+      :meta {:interface "webtiles", :version "0.14-a0-2327-g5ff15cf"}
+      :name "zejeff", :time "00:21:20", :title "Covert", :godtitle "High Priest", :turns 7629
+      :resistances {:Clar ".", :Cons ".", :Sap "++.", :SustAb "+.", :Ward ".", :rC "...", :rCorr "."
+                    :rElec ".", :rF "...", :rMut ".", :rN "...", :rPois ".", :rRot ".", :sInv ".", :spirit ".", :stasis ".", :MR "....."}
+      :stats {:god "Trog", :piety "*****.", :ac 6, :dex 18, :ev 14, :gold 370, :hp -15, :int 5, :mhp 96, :mmp 10, :mp 10, :percent-of-next-xl 13
+              :sh 0, :spell-levels-left 9, :spells 0, :str 22, :xl 10}}
+
   (parse-char " Dungeon Crawl Stone Soup version 0.11-a0-2388-g9c8974f (console) character file.
 
 148 dev the Grave Robber (level 3, -1/28 HPs)
