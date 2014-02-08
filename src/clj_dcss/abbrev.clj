@@ -40,7 +40,8 @@
    "Spriggan"       "Sp"
    "Tengu"          "Te"
    "Troll"          "Tr"
-   "Vampire"        "Vp"})
+   "Vampire"        "Vp"
+   "Vine Stalker"   "VS"})
 (def species-reverse (set/map-invert species))
 (def species-long (set (keys species)))
 (def species-short (set (vals species)))
